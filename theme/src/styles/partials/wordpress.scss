@@ -1,0 +1,174 @@
+@use 'include-media/dist/_include-media.scss' as *;
+@use './config.scss' as *;
+
+// core
+.alignfull {
+  @extend %alignfull;
+}
+
+.alignwide {
+  @extend %alignwide;
+}
+
+
+// plugins
+.wpforms-container {
+  // label
+  &.wpforms-container-full .wpforms-form .wpforms-field-label {
+    font-size: 1.25rem;
+  }
+
+  // submit button
+  .wpforms-form button[type=submit].wpforms-submit {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--kemet-button-font-size, inherit);
+    color: var(--kemet-button-color, var(--kemet-color-white));
+    width: var(--kemet-button-width, auto);
+    height: var(--kemet-button-height, auto);
+    border: var(--kemet-button-border, 0);
+    border-radius: var(--kemet-button-border-radius, 0);
+    transition: filter var(--kemet-button-transition-speed, 300ms) ease;
+    background-color: var(--kemet-button-background-color, var(--kemet-color-primary));
+
+    &:hover {
+      border: var(--kemet-button-border, 0);
+      filter: brightness(var(--kemet-button-hover-brightness, 1.25));
+      background-color: var(--kemet-button-background-color, var(--kemet-color-primary));
+    }
+  }
+}
+
+.bookly-form {
+  * {
+    font-size: 1rem !important;
+  }
+
+  select,
+  div select {
+    background: none;
+    padding: 1rem !important;
+    appearance: none;
+  }
+
+  div:has(> select) {
+    position: relative;
+
+    select {
+      padding-right: 2rem !important;
+    }
+
+    &::after {
+      content: '›';
+      font-size: 2rem;
+      display: inline-block;
+      position: absolute;
+      right: 1rem;
+    }
+  }
+
+  textarea,
+  div textarea {
+    padding: 1rem !important;
+  }
+
+  input[type="text"],
+  div input[type="text"]  {
+    padding: 1rem !important;
+  }
+
+  .bookly-columnizer {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .bookly-columnizer-wrap {
+    height: auto !important;
+    overflow-x: scroll;
+
+    @include media('>=1024px') {
+      overflow-x: visible;
+    }
+  }
+
+  .bookly-time-prev.bookly-btn,
+  .bookly-time-next.bookly-btn {
+    display: none;
+
+    @include media('>=1024px') {
+      display: block;
+    }
+  }
+
+  .bookly-service-step .bookly-week-days label {
+    margin: 0.5rem auto 0 auto;
+  }
+
+  .bookly-columnizer .bookly-time-screen {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    // padding: 1rem;
+    // border: 2px dashed lightgray;
+  }
+
+  .bookly-columnizer .bookly-hour,
+  .bookly-columnizer .bookly-day {
+    margin-bottom: 1rem !important;
+  }
+
+  .bookly-columnizer .bookly-column {
+    min-width: 0;
+    padding: 0;
+    flex: 1;
+  }
+
+  .bookly-columnizer .bookly-hour .bookly-hour-icon {
+    display: none;
+  }
+
+  .bookly-time-step {
+    width: auto !important;
+  }
+
+  .bookly-btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--kemet-button-font-size, inherit) !important;
+    color: var(--kemet-button-color, var(--kemet-color-white))  !important;
+    width: var(--kemet-button-width, auto)  !important;
+    height: var(--kemet-button-height, auto) !important;
+    border: var(--kemet-button-border, 0)  !important;
+    border-radius: var(--kemet-button-border-radius, 0) !important;
+    transition: filter var(--kemet-button-transition-speed, 300ms) ease;
+    background-color: var(--kemet-button-background-color, var(--kemet-color-primary)) !important;
+
+    &:hover {
+      filter: brightness(var(--kemet-button-hover-brightness, 1.25));
+    }
+
+    > span {
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      gap: var(--kemet-button-gap, 0.5rem);
+      align-items: center;
+      padding: var(--kemet-button-padding, 1rem 1.25rem);
+      border: 0px;
+      background: none;
+      color: inherit !important;
+      font-size: inherit !important;
+      line-height: 1 !important;
+      font-weight: normal !important;
+      text-transform: none !important;
+    }
+  }
+
+  .bookly-form-group[data-type="staff"] {
+    display: none; // hides "employee" selection
+  }
+}

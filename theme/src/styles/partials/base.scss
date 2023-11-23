@@ -1,0 +1,113 @@
+@use 'include-media/dist/_include-media.scss' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-white: var(--kemet-color-white);
+  --color-rich-white: rgb(250, 250, 250);
+  --color-rich-white-50: rgba(250, 250, 250, 0.5);
+}
+
+html {
+  overflow: hidden;;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.25rem;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-tertiary);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+  font-family: 'Poppins', sans-serif;
+}
+
+table {
+  color: inherit;
+}
+
+main {
+  width: 100%;
+  padding: 0 2rem 2rem 2rem;
+
+  @include media('>tablet') {
+    flex: 1;
+    padding: 2rem;
+  }
+}
+
+kemet-button {
+  white-space: nowrap;
+}
+
+kemet-drawer {
+  display: block;
+
+  > [slot="content"] {
+    @include media('>tablet') {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  > [slot="navigation"] aside {
+    a {
+      font-family: 'Poppins', sans-serif;
+      display: block;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.25)
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 128px;
+    }
+  }
+}
+
+kemet-drawer::part(container) {
+  overflow: auto;
+}
+
+kemet-carousel::part(slides) {
+  padding: 0;
+  border: none;
+}
