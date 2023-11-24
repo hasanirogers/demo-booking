@@ -11,11 +11,12 @@ const config = {
   port: process.env.FTP_DEPLOY_PORT || 22,
 };
 
-const isDev = process.argv.indexOf('--dev') > -1;
+const isDev = process.argv.indexOf('-d') > -1;
+const theme = process.argv[process.argv.findIndex(arg => arg === '-t') + 1];
 
 const directories = {
   theme: {
-    local: '/theme',
+    local: `/${theme}`,
     remote: isDev ? '/var/www/booking.hasanirogers.me/public_html/wp-content/themes/booking' : '/var/www/booking.hasanirogers.me/public_html/wp-content/themes/booking',
   },
   filter: /^(?!.*(.git|.github|node_modules))/gm
@@ -24,7 +25,6 @@ const directories = {
 const upload = async () => {
   const client = new SftpClient();
   const themeSRC = path.join(__dirname, directories.theme.local);
-  // const pluginsSRC = path.join(__dirname, directories.plugins.local);
 
   try {
     await client.connect(config);

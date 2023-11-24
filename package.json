@@ -4,8 +4,8 @@
   "description": "Demo booking site.",
   "main": "index.js",
   "scripts": {
-    "deploy": "node deploy.js",
-    "plugins": "wp-env run cli wp plugin install updraftplus autoptimize bookly-responsive-appointment-booking-tool wordpress-seo wpforms-lite wp-mail-smtp",
+    "deploy": "node deploy.js -t booking",
+    "plugins": "wp-env run cli wp plugin install updraftplus autoptimize bookly-responsive-appointment-booking-tool wordpress-seo wpforms-lite wp-mail-smtp customizer-export-import",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "wp-env start --update",
     "stop": "wp-env stop",
