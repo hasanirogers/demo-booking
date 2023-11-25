@@ -3,6 +3,7 @@
   "themes": ["./booking"],
   "plugins": ["../../Pluginspaces/Wordpress/business-blocks/business-blocks"],
   "port": 3334,
+  "testsPort": 3335,
   "config": {
     "FS_METHOD": "direct"
   },
