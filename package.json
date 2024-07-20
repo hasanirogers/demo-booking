@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "wp-env start --update",
     "stop": "wp-env stop",
-    "wp-env": "wp-env"
+    "wp-env": "wp-env",
+    "wp-env:path": "wp-env install-path"
   },
   "author": "Hasani Rogers <dev@hasanirogers.me>",
   "license": "ISC",
